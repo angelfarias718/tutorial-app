@@ -4,4 +4,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('Hello world!')
+    return HttpResponse('Here will be tutorial')
+def index(request):
+	context_dict = {'boldmessage':'tutorials here'}
+	return HttpResponse("Here will be tutorial")
+def index(request):
+	context_dict={'boldmessage':'tutorials here!'}
+	return render(request, 'index.html', context_dict)
