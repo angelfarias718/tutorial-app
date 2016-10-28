@@ -1,32 +1,30 @@
-<<<<<<< HEAD
 {% load static %}
 <html>
 <head>
 	<title>Tutorial App</title>
 </head>
 <body>
+<center>
 	<h1>Tutorials</h1>
-	<strong>{{ boldmessage }}</strong>
-	<img src="{% static 'images/nonphoto.jpg' %}">
+	<a href="/about">About Us</a>
+	<a href="/add-category/">Add Category</a>
+
+	{% if categories %}
+		{% for category in categories %}
+			<a href="category/{{category.slug}}"><p>{{ category.name }}</p>
+		{% endfor %}
+	{% else %}
+		<p>There are no categories</p>
+	{% endif %}
+	{% if pages %}
+		{% for page in pages %}
+		<a href="{{ page.url }}">{{ page.title }}</a>
+		{% endfor %}
+	{% else %}
+		<p>There are no pages</p>
+		{% endif %}
+
+	<br>
+	<img src="{% static 'https://alderconsulting.files.wordpress.com/2013/10/nike-just-do-it.jpg' %}" />
 </body>
-=======
-<!DOCTYPE html>
-{% load static %}
-<html lang='en'>
-
-	<head>
-
-		<title>Rango</title>
-	
-	</head>
-
-	<body>
-
-		<h1>Tutorials718</h1>
-		Here is knowledge <strong>{{ boldmessage }}</strong><br />
-		<a href="/about/">About</a><br />
-		<img src="{% static 'https://alderconsulting.files.wordpress.com/2013/10/nike-just-do-it.jpg' %}" />
-
-	</body>
->>>>>>> 459f27552dc1899c1423957cf32db4e7fe731399
 </html>
