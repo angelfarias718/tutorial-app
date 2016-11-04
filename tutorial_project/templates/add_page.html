@@ -1,8 +1,7 @@
-<html>
-<head>
-	<title>Add a Page to {{category.name}}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Page{% endblock %}
+{% block body_block %}
 	<h1>Add a Page {{category.name}}</h1>
 	<form id="page_form" method='post' action='/category/{{slug}}/add-page/'>
 
@@ -21,5 +20,4 @@
 	<input type='submit' name='submit' value='Add a Page'>
 
 	</form>
-</body>
-</html>
+{% endblock %}
