@@ -1,28 +1,54 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block  body_block %}
 <center>
 	{% if user.is_authenticated %}
-	<h1>Welcome to Tutorial App {{ user.username }}</h1>
-	{% else %}
-	<h1>Tutorials</h1>
-	{% endif %}
+		<div class="page-header">
+
+				<h1>Welcome to Tutorial App {{ user.username }}</h1>
+			{% else %}
+				<h1>Tutorials</h1>
+			{% endif %}
+		</div>
+
+				<div class="row placeholders">
+					<div class="col-xs-12 col-md-6 placeholders">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Categories</h3>
+							</div>
+						</div>
 
 	{% if categories %}
-		{% for category in categories %}
-			<a href="{% url 'category' category.slug %}"><p>{{ category.name }}</p>
-		{% endfor %}
-	{% else %}
-		<p>There are no categories</p>
-	{% endif %}
-	{% if pages %}
-		{% for page in pages %}
-		<a href="{{ page.url }}">{{ page.title }}</a>
-		{% endfor %}
-	{% else %}
-		<p>There are no pages</p>
+		<ul class="list-group">
+			{% for category in categories %}
+			<li class="list-group-item"><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<strong>There are no categories present.</strong>
 		{% endif %}
 
+	</div>
+	<div class="col-xs-12 col-sm-6 placeholder">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Pages</h3>
+			</div>
+		</div>
+
+	{% if pages %}
+		<ul class="list-group">
+			{% for page in pages %}
+			<li class="list-group-item"><a href="{{page.url}}">{{ page.title }}</a></li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<strong>There are no categories present.</strong>
+	{% endif %}
+	</div>
+</div>
 	<br>
-	<img src="{% static 'https://alderconsulting.files.wordpress.com/2013/10/nike-just-do-it.jpg' %}" />
 {% endblock %}

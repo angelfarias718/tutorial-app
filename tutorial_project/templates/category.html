@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}{{ category.name }}{% endblock %}
-{% block body_block %}
+	{% block body_block %}
+{% if category %}
 
-	<h1>{{ category.name }}</h1>
-	{% if category %}
-		{% if pages %}
-		<ul>
-			{% for page in pages %}
-			<li><a href="{{page.url}}">{{page.title}}</a></li>
+		<form role="form" id="page_form" method="post" action="/category/{{category.slug}}/add_page/">
+	<h2 class="form-signin-heading">Add a Page to <a href="/category/{{category.slug}}/"> {{ category.name }}</a></h2>
+			{% csrf_token %}
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
 			{% endfor %}
-		</ul>
-		{% else %}
-			<p>This category has no pages </p>
-		{% endif %}
-		{% if user.is_authenticated %}
-		<a href="{% url 'add-page' category.slug %}">Add Page</a>
-		{% endif %}
+
+			{% for field in form.visible_fields %}
+				{{ field.errors }}
+				{{ field.help_text }}<br/>
+				{{ field }}<br/>
+			{% endfor %}
+
+		<br/>
+	<button class="btn btn-primary" type="submit" name="submit">Add Page</button>
+		</form>
 	{% else %}
-		<p>The specified category {{ category.name }} does not exist</p>
-		{% endif %}
+	<p>This is category does not exist.</p>
+{% endif %}
 
 {% endblock %}

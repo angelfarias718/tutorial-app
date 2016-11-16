@@ -1,23 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Add Page{% endblock %}
 {% block body_block %}
-	<h1>Add a Page {{category.name}}</h1>
-	<form id="page_form" method='post' action='/category/{{slug}}/add-page/'>
+{% load extras %}
+{% if category %}
 
-	{% csrf_token %}
+				<form role="form" id="page_form" method="post" action="/category{{category.slug}}/add_page/">
+			<h2 class="form-signin-heading">Add a Page to <a href="/category{{category.slug}}/">{{ category.name }}</a></h2>
+					{% csrf_token %}
+					{% for hidden in form.hidden_fields %}
+						{{ hidden }}
+					{% endfor %}
 
-	{% for hidden in form.hidden_fields %}
-		{{ hidden }}
-	{% endfor %}
+					{% for field in form.visible_fields %}
+					<div class='form-group'>
+						{{ field.errors }}
+						{{ field.help_text }}<br/>
+						{{ field.label }}
+						{{ field |addcls:'form-control' }}<br/>
+					</div>
+					{% endfor %}
 
-	{% for field in form.visible_fields %}
-		{{ field.errors }}
-		{{ field.help_text }}
-		{{ field }}
-	{% endfor %}
+				<br/>
+			<button class="btn btn-primary" type="submit" name="submit">Add Page</button>
+				</form>
+			{% else %}
+			<p>This is category does not exist.</p>
+		{% endif %}
 
-	<input type='submit' name='submit' value='Add a Page'>
 
-	</form>
-{% endblock %}
+		{% endblock %}
