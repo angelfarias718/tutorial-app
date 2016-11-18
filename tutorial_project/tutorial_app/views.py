@@ -6,6 +6,7 @@ from forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from django.shortcuts import redirect
 
 
 def index (request):
@@ -184,3 +185,20 @@ def user_login(request):
 def user_logout(request):
 	logout(request)
 	return HttpResponseRedirect('/')
+
+def track_url(request):
+	page_id = None
+
+	url = '/'
+
+	if request.method == 'GET':
+		if 'page_id' in request.GET:
+			page_id = request.GET['page_id']
+			try:
+				page = Page.objects.get(id=page_id)
+				page.views = page.views + 1
+				page.save()
+				url = page.url
+			except:
+				pass
+	return redirect(url)

@@ -4,30 +4,41 @@
 {% block title %}Register{% endblock %}
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
-<h1>Register with the Tutorial App</h1>
+		
+		<h1 class="form-signin-heading">Register with the Tutorial App</h1>
 
-	{% if registered %}
-	<strong>Thanks for registering!</strong>
-	<a href="{% url 'index' %}">Return to the homepage</a><br />
-	{% else %}
-	<strong class="form-signin-heading">Register Here!</strong><br />
-	<form class="form-signin" id='user_form' method='post' action='/register/' enctype="multipart/form-data">
-	<strong class="form-signin-heading">Please Register</strong>
-	{% csrf_token %}
+		{% if registered %}
+		<strong>Thanks for registering!</strong>
+		<a href="{% url 'index' %}">Return Home</a>
+		{% else %}
+		<strong class="form-signin-heading"><h2>Register Here</h2>!</strong>
+
+		<form class="form-signin" id='user_form' method='post' action='/register/' enctype='multipart/form-data'>
+			<strong class="form-signin-heading">Please Register</strong>
+			{% csrf_token %}
 
 
-	{% for field in user_form.visible_fields %}
-	<div class='form-group'>
-	{{ field.errors }}<br>
-	{{ field.help_text }}<br>
-	{{ field.label }}
-	{{ field |addcls:'form-control' }}
-	</div>
-	{% endfor %}
+			{% for field in user_form.visible_fields %}
+			<div class='form-group'>
+					{{field.errors}}<br>
+					{{field.help_text}}<br>
+					{{field.label}}
+					{{field |addcls:'form-control' }}
+			</div>
+			{% endfor %}
 
-	{% for field in profile_form.visibl_fields %}
+			{% for field in profile_form.visible_fields %}
+			<div class='form-group'>
+					{{field.errors}}<br>
+					{{field.help_text}}<br>
+					{{field.label}}
+					{{field|addcls:'form-control'}}<br>
+			</div>
+			{% endfor %}
 
-	<input type="submit" name="submit" value="Register" />
-	</form>
-	{% endif %}
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Register</button>
+
+		</form>
+		{% endif %}
 {% endblock %}

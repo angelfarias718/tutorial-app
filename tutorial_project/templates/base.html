@@ -4,44 +4,40 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv=="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="U-UA-Compatible" content="EI=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<link rel="icon" href="http://getbootstrap.com/favicon.ico"
+		<link rel='icon' href="http://getbootstrap.com/favicon.ico">
 
 		<title>{% block title %}Tutorial App{% endblock %}</title>
 
-		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
-
-		
+		<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/dashboard/dashboard.css" >
 
 
 	</head>
 	<body style="background-color: #86CD9B">
 
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
+						<span class="sr-only">Toggle Navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">Tutorials 718</a>
+					<a class="navbar-brand" href="{% url 'index' %}">Tutorials 718</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="{% url 'about' %}">About Us</a></li>
-						<li><a href="{% url 'index' %}">Home</a></li>
 						{% if user.is_authenticated %}
-						<li><a href="{% url 'logout' %}">Logout</a></li>
 						<li><a href="{% url 'add-category' %}">Add Category</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
 						{% else %}
 						<li><a href="{% url 'login' %}">Login</a></li>
-						<li><a href="{% url 'register' %}">Register Here</a></li>
+						<li><a href="{% url 'register' %}">Register </a></li>
 						{% endif %}
 					</ul>
 				</div>
@@ -51,19 +47,25 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
-						{% block side_block %}{% get_category_list category %}{% endblock %}
+						{% block side_block %}
+
+
+								{% get_category_list category %}
+
+
+						{% endblock %}
 
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<div>
-							{% block body_block %}{% endblock %}
-							</div>
+						{% block body_block %}{% endblock %}
+	
+
 				</div>
-			</div>
+		</div>
 		</div>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-		<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-	</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+		
+</body>
 </html>
