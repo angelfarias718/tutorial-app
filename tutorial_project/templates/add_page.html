@@ -4,14 +4,12 @@
 {% block title %}Add Pages{% endblock %}
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
-		<h1 class="form-signin-heading">Add a Page {{ category.name }}</h1>
-		<form class="form-signin" id="page_form" method='post' action='/category{{slug}}/add-page/'>
+				<h1 class="form-signin-heading">Add a Page {{category.name}}</h1>
+				<form class="form-signin" id="page_form" method='post' action='/category{{slug}}/add-page/'>
 				<h3 class="form-signin-heading">Add a Page to {{category.name}}</h3>
 				{% csrf_token %}
-					
-
 				{% for hidden in form.hidden_fields %}
-						{{ hidden }}
+					{{ hidden }}
 				{% endfor %}
 
 				{% for field in form.visible_fields %}
@@ -19,12 +17,9 @@
 						{{ field.errors }}
 						{{ field.help_text }}
 						{{ field.label }}
-						{{ field |addcls:'form-control' }}
+						{{ field|addcls:'form-control' }}
 				</div>
 				{% endfor %}
-
-
-				<button class="btn btn-lg btn-primary btn block" type="submit" value="submit">Add Page</button>
-
+				<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Add Page</button>
 		</form>
 {% endblock %}

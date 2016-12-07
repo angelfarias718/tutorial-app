@@ -10,25 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
-
-TEMPLATE_DIRS = (
-    TEMPLATE_PATH,
-    )
-STATIC_PATH = os.path.join(BASE_DIR, 'static')
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    STATIC_PATH,
-)
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-MEDIA_URL = '/media/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -53,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tutorial_app',
+    'django_extensions',
+    'werkzeug'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,4 +105,10 @@ LOGIN_URL = '/login/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'angelcodewriter@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASS')
+
+
