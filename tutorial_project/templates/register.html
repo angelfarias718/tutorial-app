@@ -11,9 +11,11 @@
 		<strong>Thanks for registering!</strong>
 		<a href="{% url 'index' %}">Return Home</a>
 		{% else %}
-		<strong class="form-signin-heading"><h2>Register Here</h2>!</strong>
+		<strong class="form-signin-heading"><h2></h2></strong>
 
 		<form class="form-signin" id='user_form' method='post' action='/register/' enctype='multipart/form-data'>
+		<br>
+		<br>
 			<strong class="form-signin-heading">Please Register</strong>
 			{% csrf_token %}
 
@@ -22,7 +24,7 @@
 			<div class='form-group'>
 					{{field.errors}}<br>
 					{{field.help_text}}<br>
-					{{field.label}}
+					{{field.label}}<br>
 					{{field |addcls:'form-control' }}
 			</div>
 			{% endfor %}
@@ -31,7 +33,7 @@
 			<div class='form-group'>
 					{{field.errors}}<br>
 					{{field.help_text}}<br>
-					{{field.label}}
+					{{field.label}}<br>
 					{{field|addcls:'form-control'}}<br>
 			</div>
 			{% endfor %}

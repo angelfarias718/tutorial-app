@@ -4,10 +4,18 @@
 <html lang="en">
 <head>
 
+	<style>
+		body {
+			background: url("//img1.wsimg.com/isteam/stock/8759caae62aa3ecf43c3e75cb30b7fb8aca52380515f78a6f9a46b961670af40/:/rs=w:1136,h:568,cg:true,m/cr=w:1136,h:568");
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+
 		<meta charset="utf-8">
 		<meta http-equiv="U-UA-Compatible" content="EI=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+		<title>{% block title %}Tutorial App{% endblock %}</title>
 		   <!-- Font Awesome -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
@@ -17,14 +25,18 @@
 	    <!-- Material Design Bootstrap -->
 	    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/css/mdb.min.css" rel="stylesheet">
 
+	    
 	    <!-- Your custom styles (optional) -->
-	    <!--<link href="./static/css/style.css" rel="stylesheet">-->
+	    <link href="./static/css/style.css" rel="stylesheet">
 
-		<title>{% block title %}Tutorial App{% endblock %}</title>
+		
 
 
 	</head>
-	<body style="background-color: #86CD9B">
+	<!--<body style="background-color: #86CD9B">-->
+	<!--<body style="background: url(//img1.wsimg.com/isteam/stock/f9eaeeabbe5201d95e9d7e163dcac31cf823415b639d9098a9245d1ddfe9679b/:/rs=w:400,h:400,m/cr=w:400,h:400,a:cc)">
+	<body style="background-size: cover">-->
+
 
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -36,17 +48,17 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{% url 'index' %}">Tutorials 718</a>
+					<a class="navbar-brand" href="{% url 'index' %}">Home</a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="{% url 'about' %}">About Us</a></li>
-						<li><a href="{% url 'contact' %}">Contact</a></li>
+						<li><a href="{% url 'about' %}">Agents</a></li>
+						<li><a href="{% url 'contact' %}">Properties on the Market</a></li>
 						{% if user.is_authenticated %}
-						<li><a href="{% url 'add-category' %}">Add Category</a></li>
+						<!--<li><a href="{% url 'add-category' %}">Add Category</a></li>
 						<li><a href="{% url 'profile' user.username %}">{{user.username}}'s Profile'</a></li>
 						<li><a href="{% url 'logout' %}">Logout</a></li>
-						{% else %}
+						{% else %}-->
 						<li><a href="{% url 'login' %}">Login</a></li>
 						<li><a href="{% url 'register' %}">Register</a></li>
 						{% endif %}
@@ -59,7 +71,7 @@
 		<br>
 		<br>
 		<br>
-		<div class="container-fluid">
+		<!--<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-2 sidebar">
 				<ul class="nav nav-list">
@@ -70,12 +82,10 @@
 						</form>
 
 				</ul>
-
 				<div id="cats">
-				</div>
-					
-				</div>
-				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			</div>		
+		</div>-->
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
 				<div>
 						{% block body_block %}{% endblock %}
 				</div>

@@ -1,1 +1,32 @@
-/* YOUR CUSTOM STYLES */
+body {
+	background: url("//img1.wsimg.com/isteam/stock/8759caae62aa3ecf43c3e75cb30b7fb8aca52380515f78a6f9a46b961670af40/:/rs=w:1136,h:568,cg:true,m/cr=w:1136,h:568");
+	background-size: cover;
+	background-position: center;
+	color: black;
+	font-family: century gothic;
+}
+.panel-primary {
+		background-color: rgba(0,0,0,0.3);	
+		border-color: #000000;
+}
+.panel-primary > .panel-heading {
+  contentlor: #fff;
+  background-color: #000000;
+  border-color: #000000;
+}
+.panel-primary > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #000000;
+}
+.panel-primary > .panel-heading .badge {
+  color: #000000;
+  background-color: #fff;
+}
+.panel-primary > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #000000;
+}
+
+.list-group-item {
+	background-color: rgba(0,0,0,0.3);	
+}
+.list-group-item a { 
+	color: #fff; /* YOUR CUSTOM STYLES */
