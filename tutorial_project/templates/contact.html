@@ -6,8 +6,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 
 	<h1 class="form-signin-heading">Contact Us</h1>
+	<form class="form-signin" id='page_form' method="post" action='/contact/'>
+	<h3 class="form-signin-heading">Contact</h3>
 
-	<form id="user_form" method="post" action="/contact/">
 
 	{% csrf_token %}
 	{% for hidden in form.hidden_fields %}

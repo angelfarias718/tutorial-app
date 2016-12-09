@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	new WOW().init();
 
 $('#suggestion').keyup(function(){
 		var query;

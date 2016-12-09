@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tutorial_app',
     'django_extensions',
-    'werkzeug'
+    'werkzeug',
 )
 
 MIDDLEWARE_CLASSES = (

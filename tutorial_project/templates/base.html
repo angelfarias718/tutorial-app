@@ -7,12 +7,20 @@
 		<meta charset="utf-8">
 		<meta http-equiv="U-UA-Compatible" content="EI=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel='icon' href="http://getbootstrap.com/favicon.ico">
+		
+		   <!-- Font Awesome -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	    <!-- Material Design Bootstrap -->
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/css/mdb.min.css" rel="stylesheet">
+
+	    <!-- Your custom styles (optional) -->
+	    <!--<link href="./static/css/style.css" rel="stylesheet">-->
 
 		<title>{% block title %}Tutorial App{% endblock %}</title>
-
-		<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/examples/dashboard/dashboard.css" >
 
 
 	</head>
@@ -48,10 +56,12 @@
 			
 			</div>
 		</div>
-
+		<br>
+		<br>
+		<br>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-3 col-md-2 sidebar">
+				<div class="col-sm-2 sidebar">
 				<ul class="nav nav-list">
 						<li class="nav-header">Find a Category</li>
 						<form>
@@ -74,11 +84,20 @@
 		</div>
 	</div>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./static/js/jquery-3.1.1.min.js"></script>
 
-<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="./static/js/tether.min.js"></script>
 
-<script type="text/javascript" src="{% static 'js/app_ajax.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.2.0/js/mdb.min.js"></script>
+
+
+
+	<script type="text/javascript" src="{% static 'js/app_ajax.js' %}"></script>
 		
 </body>
 </html>
