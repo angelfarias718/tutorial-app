@@ -1,9 +1,10 @@
 body {
-	background: url("//img1.wsimg.com/isteam/stock/8759caae62aa3ecf43c3e75cb30b7fb8aca52380515f78a6f9a46b961670af40/:/rs=w:1136,h:568,cg:true,m/cr=w:1136,h:568");
-	background-size: cover;
-	background-position: center;
-	color: black;
+	background: blue;
+	background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+	background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+	background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
 	font-family: century gothic;
+	color: white;
 }
 .panel-primary {
 		background-color: rgba(0,0,0,0.3);	
@@ -29,4 +30,4 @@ body {
 	background-color: rgba(0,0,0,0.3);	
 }
 .list-group-item a { 
-	color: #fff; /* YOUR CUSTOM STYLES */
+	color: #c54b4b; /* YOUR CUSTOM STYLES */
